@@ -1,0 +1,94 @@
+<div class="govuk-grid-column-one-quarter">
+  <section class="filters" id="filters">
+    <form action="/all" method="post" id="filter-form">
+      <div role="widget" class="filter">
+        <div class="govuk-body filters-heading" role="button" aria-controls="filter-crn" aria-expanded="true" tabindex="0">Search for restricted word
+        </div>
+        <div id="filter-crn" class="filters-wrapper" aria-hidden="true" aria-labelledby="filter-label-crn">
+          {{ govukInput({
+            id: "filter-company-number",
+            name: "filterCompanyNumber",
+            value: filterParams.companyNumber
+          }) }}
+        </div>
+      </div>
+      <div role="widget" class="filter">
+        <div class="govuk-body filters-heading" role="button" aria-controls="filter-crn" aria-expanded="true" tabindex="0">
+          <span id="filter-label-status">
+            <span class="govuk-visually-hidden">Filter by
+            </span>Word type</span>
+        </div>
+        <div id="filter-crn" class="filters-wrapper" aria-hidden="true" aria-labelledby="filter-label-crn">
+          {{ govukRadios({
+            idPrefix: "filter-word-type",
+            name: "filterWordType",
+            fieldset: {
+              legend: {
+                text: "What word type do you want to see?",
+                isPageHeading: false,
+                classes: "govuk-visually-hidden"
+              }
+            },
+            items: [
+            {
+              value: "Show all",
+              text: "Show all",
+              checked: filterParams.status.referred.checked
+            },
+              {
+                value: "Super restricted words",
+                text: "Super restricted words",
+                checked: filterParams.status.referred.checked
+              },
+              {
+                value: "Non-super restricted words",
+                text: "Non-super restricted words",
+                checked: filterParams.status.accepted.checked
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+
+      <div role="widget" class="filter">
+        <div class="govuk-body filters-heading" role="button" aria-controls="filter-status" aria-expanded="true" tabindex="0">
+          <span id="filter-label-status">
+            <span class="govuk-visually-hidden">Filter by
+            </span>Status</span>
+        </div>
+        {{ govukRadios({
+          idPrefix: "filter-status",
+          name: "filterStatus",
+          fieldset: {
+            legend: {
+              text: "What case statuses do you want to see?",
+              isPageHeading: false,
+              classes: "govuk-visually-hidden"
+            },
+            classes: "filters-wrapper"
+          },
+          items: [
+          {
+            value: "All",
+            text: "Show all",
+            checked: filterParams.status.referred.checked
+          },
+            {
+              value: "Active",
+              text: "Active",
+              checked: filterParams.status.referred.checked
+            },
+            {
+              value: "Deleted",
+              text: "Removed",
+              checked: filterParams.status.accepted.checked
+            }
+          ]
+        }) }}
+      </div>
+      {{ govukButton({
+        text: "Search"
+      }) }}
+    </form>
+  </section>
+</div>

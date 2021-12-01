@@ -1,0 +1,89 @@
+{% extends "layout-wider.html" %}
+{% block pageTitle %}
+  Overview - Restricted words - Companies House Internal Service
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if status == 'success' %}
+        {% set html %}
+        <p class="govuk-notification-banner__heading">
+          You've added the word
+          {{wordAdded | upper}}.
+        </p>
+        {% endset %}
+        {{ govukNotificationBanner({
+          html: html,
+          type: 'success'
+        }) }}
+      {% endif %}
+      <span class="govuk-caption-xl">Restricted words</span>
+      <h1 class="govuk-heading-xl">Overview</h1>
+
+      {{ govukButton({
+        text: "Add new restricted word",
+        href: "add-new-word"
+      }) }}
+    </div>
+  </div>
+  {% if cases.length > 0 %}
+    <div class="govuk-grid-row">
+      {% include "includes/filters.html" %}
+      <div class="govuk-grid-column-three-quarters column-results column-results--active">
+        <h3 class="info result-count govuk-heading-m govuk-!-font-weight-regular" id="result-count" aria-live="assertive">{{length}}</h3>
+        <table class="govuk-table" id="all-cases-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">
+                <span class="govuk-visually-hidden">Restricted</span>
+                Word</th>
+              <th class="govuk-table__header" scope="col">Added by</th>
+              <th class="govuk-table__header" scope="col">Date added</th>
+              <th class="govuk-table__header" scope="col">Date removed</th>
+              <th class="govuk-table__header" scope="col">Super restricted?</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            {% for case in cases %}
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="row">
+                  <a href="word?word={{ case.word}}" class="govuk-link govuk-link--no-visited-state">{{ case.word }}</a>
+                </th>
+                <td class="govuk-table__cell" scope="row">
+                  <!-- {{case.added}}-->
+                  {{ ["dsmith@companieshouse.gov.uk", "Rmorgan@companieshouse.gov.uk", "lsmyth@companieshouse.gov.uk", "elynham@companieshouse.gov.uk", "JAbbott@companieshouse.gov.uk", "hmatthews@companieshouse.gov.uk", "jsimons@companieshouse.gov.uk"] | random }}
+                </td>
+                <td class="govuk-table__cell" scope="row">
+                  <!--{{ case.addedon }}-->
+                  {{ ["02/04/2009", "05/11/2014", "22/08/2008", "28/02/2018", "02/12/2016", "14/05/2008", "22/07/2019"] | random }}
+                </td>
+                <td class="govuk-table__cell" scope="row">
+                  {{ [" ", " ", " ", " ", "09/03/2013", "09/04/2004", "23/10/2017"] | random }}
+                  {{ case.removedon }}
+                </td>
+                <td class="govuk-table__cell" scope="row">
+                  {{["Yes", "No"] | random }}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <div class="govuk-grid-row ch-pagination-container">
+          <div class="govuk-grid-column-one-third">
+            {% include "includes/pagination-views-per-page.html" %}
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            {% include "includes/pagination-links.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="govuk-grid-row">
+      {% include "includes/filters.html" %}
+      <div class="govuk-grid-column-three-quarters column-results column-results--active">
+        <p>The word **WORD (uppercase)** is not on the restricted words list</p>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

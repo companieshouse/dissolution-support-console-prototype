@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
   {{word}}
-  - Restricted words - Companies House Internal Service
+  COMPANY NAME (01234567) - Dissolution support console - Companies House Internal Service
 {% endblock %}
 {% block beforeContent %}
   {{ govukBackLink({
@@ -46,53 +46,17 @@
             value: {
               html: "25/04/2021"
             }
-          },
-
-          {
-            key: {
-              text: "Super restricted"
-            },
-            value: {
-              html: 'No'
-            }
           }
         ]
       }) }}
       {{ govukButton({
-        text: "Delete word",
+        text: "Delete application",
         href: "delete-word?word=" + word + '',
         classes: "govuk-button--warning"
       }) }}
-      <h2 class="govuk-heading-l">Super restricted word</h2>
-      {{ govukRadios({
-      classes: "govuk-radios--inline",
-      idPrefix: "super-restricted-word",
-      name: "super-restricted-word",
-      fieldset: {
-        legend: {
-          text: "Is this a super restricted word?"
-        }
-      },
-      hint: {
-        text: "This is an exceptionally offensive word which will be checked in documents."
-      },
-      items: [
-        {
-          value: "yes",
-          text: "Yes",
-          checked: true
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-      ]
-    }) }}
-      {{ govukButton({
-        text: "Update"
-      }) }}
+
       {{ govukTable({
-        caption: "Super restricted history",
+        caption: "History",
         captionClasses: "govuk-table__caption--m",
         head: [
           {

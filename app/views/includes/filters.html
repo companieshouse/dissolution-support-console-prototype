@@ -2,7 +2,7 @@
   <section class="filters" id="filters">
     <form action="/all" method="post" id="filter-form">
       <div role="widget" class="filter">
-        <div class="govuk-body filters-heading" role="button" aria-controls="filter-crn" aria-expanded="true" tabindex="0">Search for restricted word
+        <div class="govuk-body filters-heading" role="button" aria-controls="filter-crn" aria-expanded="true" tabindex="0">Search by company number
         </div>
         <div id="filter-crn" class="filters-wrapper" aria-hidden="true" aria-labelledby="filter-label-crn">
           {{ govukInput({
@@ -12,43 +12,7 @@
           }) }}
         </div>
       </div>
-      <div role="widget" class="filter">
-        <div class="govuk-body filters-heading" role="button" aria-controls="filter-crn" aria-expanded="true" tabindex="0">
-          <span id="filter-label-status">
-            <span class="govuk-visually-hidden">Filter by
-            </span>Word type</span>
-        </div>
-        <div id="filter-crn" class="filters-wrapper" aria-hidden="true" aria-labelledby="filter-label-crn">
-          {{ govukRadios({
-            idPrefix: "filter-word-type",
-            name: "filterWordType",
-            fieldset: {
-              legend: {
-                text: "What word type do you want to see?",
-                isPageHeading: false,
-                classes: "govuk-visually-hidden"
-              }
-            },
-            items: [
-            {
-              value: "Show all",
-              text: "Show all",
-              checked: filterParams.status.referred.checked
-            },
-              {
-                value: "Super restricted words",
-                text: "Super restricted words",
-                checked: filterParams.status.referred.checked
-              },
-              {
-                value: "Non-super restricted words",
-                text: "Non-super restricted words",
-                checked: filterParams.status.accepted.checked
-              }
-            ]
-          }) }}
-        </div>
-      </div>
+
 
       <div role="widget" class="filter">
         <div class="govuk-body filters-heading" role="button" aria-controls="filter-status" aria-expanded="true" tabindex="0">
@@ -74,13 +38,13 @@
             checked: filterParams.status.referred.checked
           },
             {
-              value: "Active",
-              text: "Active",
-              checked: filterParams.status.referred.checked
+              value: "Progress",
+              text: "In progress",
+              checked: filterParams.status.accepted.checked
             },
             {
-              value: "Deleted",
-              text: "Removed",
+              value: "Completed",
+              text: "Completed",
               checked: filterParams.status.accepted.checked
             }
           ]

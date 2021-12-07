@@ -1,32 +1,20 @@
 {% extends "layout-wider.html" %}
 {% block pageTitle %}
-  Overview - Restricted words - Companies House Internal Service
+  Overview - Dissolution support console - Companies House Internal Service
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% if status == 'success' %}
-        {% set html %}
-        <p class="govuk-notification-banner__heading">
-          You've added the word
-          {{wordAdded | upper}}.
-        </p>
-        {% endset %}
-        {{ govukNotificationBanner({
-          html: html,
-          type: 'success'
-        }) }}
-      {% endif %}
-      <span class="govuk-caption-xl">Restricted words</span>
+
+    <!--   <span class="govuk-caption-xl">Restricted words</span>
       <h1 class="govuk-heading-xl">Overview</h1>
 
-      {{ govukButton({
+    <!--  {{ govukButton({
         text: "Add new restricted word",
         href: "add-new-word"
-      }) }}
+      }) }}-->
     </div>
   </div>
-  {% if cases.length > 0 %}
     <div class="govuk-grid-row">
       {% include "includes/filters.html" %}
       <div class="govuk-grid-column-three-quarters column-results column-results--active">
@@ -34,20 +22,17 @@
         <table class="govuk-table" id="all-cases-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="col">
-                <span class="govuk-visually-hidden">Restricted</span>
-                Word</th>
-              <th class="govuk-table__header" scope="col">Added by</th>
-              <th class="govuk-table__header" scope="col">Date added</th>
-              <th class="govuk-table__header" scope="col">Date removed</th>
-              <th class="govuk-table__header" scope="col">Super restricted?</th>
+              <th class="govuk-table__header" scope="col">Company</th>
+              <th class="govuk-table__header" scope="col">Presenter</th>
+              <th class="govuk-table__header" scope="col">Date started</th>
+              <th class="govuk-table__header" scope="col">Status</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             {% for case in cases %}
               <tr class="govuk-table__row">
                 <th class="govuk-table__header" scope="row">
-                  <a href="word?word={{ case.word}}" class="govuk-link govuk-link--no-visited-state">{{ case.word }}</a>
+                  <a href="company?word={{ case.word}}" class="govuk-link govuk-link--no-visited-state">{{ case.word }}</a>
                 </th>
                 <td class="govuk-table__cell" scope="row">
                   <!-- {{case.added}}-->
@@ -61,9 +46,7 @@
                   {{ [" ", " ", " ", " ", "09/03/2013", "09/04/2004", "23/10/2017"] | random }}
                   {{ case.removedon }}
                 </td>
-                <td class="govuk-table__cell" scope="row">
-                  {{["Yes", "No"] | random }}
-                </td>
+
               </tr>
             {% endfor %}
           </tbody>
@@ -78,12 +61,5 @@
         </div>
       </div>
     </div>
-  {% else %}
-    <div class="govuk-grid-row">
-      {% include "includes/filters.html" %}
-      <div class="govuk-grid-column-three-quarters column-results column-results--active">
-        <p>The word **WORD (uppercase)** is not on the restricted words list</p>
-      </div>
-    </div>
-  {% endif %}
+
 {% endblock %}

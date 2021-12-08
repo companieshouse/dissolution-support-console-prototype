@@ -131,8 +131,8 @@ module.exports = function (router) {
       viewParams.perPage.value = parseInt(req.session.resultsPerPage)
       req.session.perPage.value = parseInt(req.session.resultsPerPage)
     } else {
-      viewParams.perPage.value = 50
-      req.session.perPage.value = 50
+      viewParams.perPage.value = 10
+      req.session.perPage.value = 10
     }
 
     // PAGE NUMBER

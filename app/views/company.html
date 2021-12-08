@@ -11,44 +11,47 @@
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters-from-desktop">
-      <h1 class="govuk-heading-xl">{{word}}</h1>
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Added by"
-            },
-            value: {
-              text: "rdavies@companieshouse.gov.uk "
-            }
-          },
-          {
-            key: {
-              text: "Date added"
-            },
-            value: {
-              text: "02/03/2016"
-            }
-          },
-          {
-            key: {
-              text: "Removed by"
-            },
-            value: {
-              html: "ddavies@companieshouse.gov.uk"
-            }
-          },
-          {
-            key: {
-              text: "Date removed"
-            },
-            value: {
-              html: "25/04/2021"
-            }
-          }
-        ]
-      }) }}
+    <div class="govuk-grid-column-full-width">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">ACME LIMITED (01234567)</h1>
+      <span class="govuk-caption-m"><a href="https://find-and-update.company-information.service.gov.uk/company/06497401">Company profile</a></span>
+
+
+      <table class="govuk-table govuk-!-margin-top-6">
+      <caption class="govuk-visually-hidden">Application status</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Email</th>
+          <th scope="col" class="govuk-table__header">Change</th>
+          <th scope="col" class="govuk-table__header">Resend</th>
+          <th scope="col" class="govuk-table__header">Signed</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Joe BLOGGS</td>
+          <td class="govuk-table__cell"><a href="javascript:void(0)">jbloggs@acme.co.uk</a></td>
+          <td class="govuk-table__cell">&nbsp;</td>
+          <td class="govuk-table__cell">&nbsp;</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed" style="float:left;">Signed</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Jane EVANS</td>
+          <td class="govuk-table__cell"><a href="javascript:void(0)">janeevans123@acme.co.uk</a></td>
+          <td class="govuk-table__cell"><a href="wait-to-sign-change">Change</a></td>
+          <td class="govuk-table__cell"><span onclick="change_text()"id="resent"><a href="javascript:void(0)">Resend email</a><span></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red app-task-list__tag" id="company-information-completed">Not signed</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">A Solicitor<br>signing on behalf of Dr A WILLIAMS</td>
+          <td class="govuk-table__cell"><a href="javascript:void(0)">asolicitor@lawcompany.co.uk</a></td>
+          <td class="govuk-table__cell"><a href="javascript:void(0)">Change</a></td>
+          <td class="govuk-table__cell"><a href="javascript:void(0)">Resend email</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red app-task-list__tag" id="company-information-completed">Not signed</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
       {{ govukButton({
         text: "Delete application",
         href: "delete-word?word=" + word + '',
@@ -58,53 +61,51 @@
       {{ govukTable({
         caption: "History",
         captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
         head: [
           {
-            text: "Date"
+            text: "Date/time"
           },
           {
-            text: "Updated by"
-          },
-          {
-            text: "Super restricted?"
+            text: "Activity"
           }
         ],
         rows: [
           [
             {
-              text: "02/04/2020"
+              text: "1.45pm 08/12/2021"
             },
             {
-              text: "sberry@companieshouse.gov.uk"
-            },
-            {
-              text: "Yes"
+              text: "Email sent to Jane EVANS (janeevans123@acme.co.uk)"
             }
           ],
           [
             {
-              text: "03/05/2019"
+              text: "1.35pm 08/12/2021"
             },
             {
-              text: "sberry@companieshouse.gov.uk"
-            },
-            {
-              text: "No"
+              text: "Email sent to A Solicitor signing on behalf of Dr A WILLIAMS (asolicitor@lawcompany.co.uk)"
             }
           ],
           [
             {
-              text: "22/08/2016"
+              text: "1.22pm 08/12/2021"
             },
             {
-              text: "sberry@companieshouse.gov.uk"
+              text: "Joe BLOGGS signed the application"
+            }
+          ],
+          [
+            {
+              text: "1.06pm 08/12/2021"
             },
             {
-              text: "Yes"
+              text: "Joe BLOGGS signed into the service"
             }
           ]
         ]
       }) }}
+
     </div>
   </div>
 {% endblock %}

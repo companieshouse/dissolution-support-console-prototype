@@ -203,7 +203,7 @@ module.exports = function (router) {
       status: status,
       wordAdded: req.session.wordAdded,
       // Show the result count
-      length: 'Showing ' + viewParams.perPage.value + ' of ' + req.session.cases.length + ' words on ' + totalPages + ' pages'
+      length: 'Showing ' + viewParams.perPage.value + ' of ' + req.session.cases.length + ' companies on ' + totalPages + ' pages'
     })
   })
 

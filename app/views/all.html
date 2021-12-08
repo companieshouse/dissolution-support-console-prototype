@@ -3,22 +3,11 @@
   Overview - Dissolution support console - Companies House Internal Service
 {% endblock %}
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
 
-    <!--   <span class="govuk-caption-xl">Restricted words</span>
-      <h1 class="govuk-heading-xl">Overview</h1>
-
-    <!--  {{ govukButton({
-        text: "Add new restricted word",
-        href: "add-new-word"
-      }) }}-->
-    </div>
-  </div>
     <div class="govuk-grid-row">
       {% include "includes/filters.html" %}
       <div class="govuk-grid-column-three-quarters column-results column-results--active">
-        <h3 class="info result-count govuk-heading-m govuk-!-font-weight-regular" id="result-count" aria-live="assertive">{{length}}</h3>
+        <h3 class="info result-count govuk-heading-m govuk-!-font-weight-regular" id="result-count" aria-live="assertive">Showing 50 of 1,511 companies on 32 pages</h3>
         <table class="govuk-table" id="all-cases-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -29,27 +18,61 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-            {% for case in cases %}
-              <tr class="govuk-table__row">
-                <th class="govuk-table__header" scope="row">
-                  <a href="company?word={{ case.word}}" class="govuk-link govuk-link--no-visited-state">{{ case.word }}</a>
-                </th>
-                <td class="govuk-table__cell" scope="row">
-                  <!-- {{case.added}}-->
-                  {{ ["dsmith@companieshouse.gov.uk", "Rmorgan@companieshouse.gov.uk", "lsmyth@companieshouse.gov.uk", "elynham@companieshouse.gov.uk", "JAbbott@companieshouse.gov.uk", "hmatthews@companieshouse.gov.uk", "jsimons@companieshouse.gov.uk"] | random }}
-                </td>
-                <td class="govuk-table__cell" scope="row">
-                  <!--{{ case.addedon }}-->
-                  {{ ["02/04/2009", "05/11/2014", "22/08/2008", "28/02/2018", "02/12/2016", "14/05/2008", "22/07/2019"] | random }}
-                </td>
-                <td class="govuk-table__cell" scope="row">
-                  {{ [" ", " ", " ", " ", "09/03/2013", "09/04/2004", "23/10/2017"] | random }}
-                  {{ case.removedon }}
-                </td>
-
-              </tr>
-            {% endfor %}
-          </tbody>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="company">ACME LIMITED (01234567)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">jbloggs@acme.co.uk</a></td>
+              <td class="govuk-table__cell">08/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">In progress</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">BANANA LIMITED (06675467)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">accountant@banana.co.uk</a></td>
+              <td class="govuk-table__cell">08/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">In progress</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">A TEST COMPANY LIMITED (0755436)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">person@test.co.uk</a></td>
+              <td class="govuk-table__cell">08/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">In progress</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">ANOTHER TEST COMPANY BUT WITH A VERY LONG NAME THAT GOES ACROSS MORE THAN ONE LINE LIMITED (01667899)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">accountants@gmail.com</a></td>
+              <td class="govuk-table__cell">07/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">In progress</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">CARROT LIMITED (09876654)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">accountantj@apple.com</a></td>
+              <td class="govuk-table__cell">07/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">Submitted</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">DANCING DANCING DANCING LTD (03345630)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">janedoe@yahoo.co.uk</a></td>
+              <td class="govuk-table__cell">07/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">In progress</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">EAGLE MAGAZINE LIMITED (00897667)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">jbloggs@acme.co.uk</a></td>
+              <td class="govuk-table__cell">06/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">Submitted</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">FRENCH LTD (01123000)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">business@microsoft.co.uk</a></td>
+              <td class="govuk-table__cell">06/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Errors</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">GANGAM STYLE LIMITED (01245645)</a></th>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">accountant@hello.co.uk</a></td>
+              <td class="govuk-table__cell">05/12/2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+            </tr>
+    </tbody>
         </table>
         <div class="govuk-grid-row ch-pagination-container">
           <div class="govuk-grid-column-one-third">

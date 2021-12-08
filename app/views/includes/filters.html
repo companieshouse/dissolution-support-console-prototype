@@ -13,6 +13,18 @@
         </div>
       </div>
 
+      <div role="widget" class="filter">
+        <div class="govuk-body filters-heading" role="button" aria-controls="filter-crn" aria-expanded="true" tabindex="0">Search by presenter
+        </div>
+        <div id="filter-crn" class="filters-wrapper" aria-hidden="true" aria-labelledby="filter-label-crn">
+          {{ govukInput({
+            id: "filter-company-number",
+            name: "filterCompanyNumber",
+            value: filterParams.companyNumber
+          }) }}
+        </div>
+      </div>
+
 
       <div role="widget" class="filter">
         <div class="govuk-body filters-heading" role="button" aria-controls="filter-status" aria-expanded="true" tabindex="0">

@@ -20,6 +20,10 @@ tr:nth-child(even) {
   background: #f1f1f1;
 }
 
+#all-cases-table strong {
+  white-space: nowrap;
+}
+
 .govuk-table__body td,
 .govuk-table__body th {
   padding: 10px 10px 10px 5px;

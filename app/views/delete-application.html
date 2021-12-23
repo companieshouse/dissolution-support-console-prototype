@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  {{word}}
+  Are you sure you want to remove Jane EVANS? - Dissolution support console - Companies House Internal Service
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "all"
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form class="form" action="/all" method="get">
+
+
+        {{ govukRadios({
+              classes: "govuk-radios--inline",
+              idPrefix: "changed-name",
+              name: "changed-name",
+              fieldset: {
+                legend: {
+                  text: "  Are you sure you want to delete the application for ACME LIMITED (01234567)?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+
+
+
+
+  {{ govukButton({
+  text: "Submit"
+}) }}
+</form>
+    </div>
+  </div>
+{% endblock %}

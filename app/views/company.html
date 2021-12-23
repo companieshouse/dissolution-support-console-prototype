@@ -11,9 +11,9 @@
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full-width">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-l govuk-!-margin-bottom-1">ACME LIMITED (01234567)</h1>
-      <span class="govuk-caption-m"><a href="https://find-and-update.company-information.service.gov.uk/company/06497401">Company profile</a></span>
+      <span class="govuk-caption-m"><strong class="govuk-tag govuk-tag--turquoise">Partly signed</strong></span>
 
 
       <table class="govuk-table govuk-!-margin-top-6">
@@ -24,6 +24,7 @@
           <th scope="col" class="govuk-table__header">Email</th>
           <th scope="col" class="govuk-table__header">Change</th>
           <th scope="col" class="govuk-table__header">Resend</th>
+        <th scope="col" class="govuk-table__header">Remove</th>
           <th scope="col" class="govuk-table__header">Signed</th>
         </tr>
       </thead>
@@ -33,6 +34,7 @@
           <td class="govuk-table__cell"><a href="javascript:void(0)">jbloggs@acme.co.uk</a></td>
           <td class="govuk-table__cell">&nbsp;</td>
           <td class="govuk-table__cell">&nbsp;</td>
+          <td class="govuk-table__cell">&nbsp;</td>
           <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed" style="float:left;">Signed</strong></td>
         </tr>
         <tr class="govuk-table__row">
@@ -40,23 +42,34 @@
           <td class="govuk-table__cell"><a href="javascript:void(0)">janeevans123@acme.co.uk</a></td>
           <td class="govuk-table__cell"><a href="wait-to-sign-change">Change</a></td>
           <td class="govuk-table__cell"><span onclick="change_text()"id="resent"><a href="javascript:void(0)">Resend email</a><span></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red app-task-list__tag" id="company-information-completed">Not signed</strong></td>
+            <td class="govuk-table__cell"><a href="remove-director">Remove</a></td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red app-task-list__tag" id="company-information-completed">Not signed</strong></td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">A Solicitor<br>signing on behalf of Dr A WILLIAMS</td>
           <td class="govuk-table__cell"><a href="javascript:void(0)">asolicitor@lawcompany.co.uk</a></td>
           <td class="govuk-table__cell"><a href="javascript:void(0)">Change</a></td>
           <td class="govuk-table__cell"><a href="javascript:void(0)">Resend email</a></td>
+          <td class="govuk-table__cell"><a href="javascript:void(0)">Remove</a></td>
+
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red app-task-list__tag" id="company-information-completed">Not signed</strong></td>
         </tr>
       </tbody>
     </table>
 
+    {{ govukButton({
+      text: "Cancel fee",
+      href: ""
+    }) }}
+
+
       {{ govukButton({
         text: "Delete application",
-        href: "delete-word?word=" + word + '',
+        href: "delete-application",
         classes: "govuk-button--warning"
       }) }}
+
+
 
       {{ govukTable({
         caption: "History",
@@ -71,6 +84,14 @@
           }
         ],
         rows: [
+        [
+          {
+            text: "1.53pm 08/12/2021"
+          },
+          {
+            text: "Payment declined: Credit card XXXX-XXXX-XXXX-1245 expired"
+          }
+        ],
           [
             {
               text: "1.45pm 08/12/2021"

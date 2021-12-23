@@ -5,22 +5,36 @@
 {% block content %}
 
     <div class="govuk-grid-row">
-      {% include "includes/filters.html" %}
-      <div class="govuk-grid-column-three-quarters column-results column-results--active">
+
+
+
+      <div class="govuk-grid-column-full">
+
+        {{ govukInput({
+          label: {
+            text: "Search"
+          },
+          classes: "govuk-!-width-one-half",
+          id: "one-half",
+          name: "one-half"
+        }) }}
+
+
+
         <h3 class="info result-count govuk-heading-m govuk-!-font-weight-regular" id="result-count" aria-live="assertive">Showing 50 of 1,511 companies on 32 pages</h3>
         <table class="govuk-table" id="all-cases-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="col">Company</th>
-              <th class="govuk-table__header" scope="col">Presenter</th>
-              <th class="govuk-table__header" scope="col">Started</th>
-              <th class="govuk-table__header" scope="col">Status</th>
+              <th class="govuk-table__header" scope="col" style="width:70%;">Company</th>
+              <th class="govuk-table__header" scope="col" style="width:20%;">Presenter</th>
+              <th class="govuk-table__header" scope="col" style="width:4%;">Started</th>
+              <th class="govuk-table__header" scope="col" style="width:6%">Status</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header"><a href="company">ACME LIMITED (01234567)</a></th>
-              <td class="govuk-table__cell"><a href="javascript:void(0)">jbloggs@acme.co.uk </a><span class="chs-email">x</span></td>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">jbloggs@acme.co.uk </a><span class="govuk-visually-hidden">Associated CHS account</span><strong class="chs-email">◀︎</strong></td>
               <td class="govuk-table__cell">08/12/2021</td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">Partly signed</strong></td>
             </tr>
@@ -32,7 +46,7 @@
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">A TEST COMPANY LIMITED (0755436)</a></th>
-              <td class="govuk-table__cell"><a href="javascript:void(0)">person@test.co.uk</a></td>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">person@test.co.uk</a><span class="govuk-visually-hidden">Associated CHS account</span><strong class="chs-email">◀︎</strong></td>
               <td class="govuk-table__cell">08/12/2021</td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple">Paid</strong></td>
             </tr>
@@ -62,7 +76,7 @@
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header"><a href="javascript:void(0)">FRENCH LTD (01123000)</a></th>
-              <td class="govuk-table__cell"><a href="javascript:void(0)">business@microsoft.co.uk</a></td>
+              <td class="govuk-table__cell"><a href="javascript:void(0)">business@microsoft.co.uk</a><span class="govuk-visually-hidden">Associated CHS account</span><strong class="chs-email">◀︎</strong></td>
               <td class="govuk-table__cell">06/12/2021</td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Accepted</strong></td>
             </tr>

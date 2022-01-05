@@ -1,6 +1,5 @@
-{% extends "layout.html" %}
+{% extends "layout-wider.html" %}
 {% block pageTitle %}
-  {{word}}
   COMPANY NAME (01234567) - Dissolution support console - Companies House Internal Service
 {% endblock %}
 {% block beforeContent %}
@@ -35,14 +34,14 @@
           <td class="govuk-table__cell">&nbsp;</td>
           <td class="govuk-table__cell">&nbsp;</td>
           <td class="govuk-table__cell">&nbsp;</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed" style="float:left;">Signed</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Signed</strong></td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Jane EVANS</td>
           <td class="govuk-table__cell"><a href="javascript:void(0)">janeevans123@acme.co.uk</a></td>
           <td class="govuk-table__cell"><a href="wait-to-sign-change">Change</a></td>
           <td class="govuk-table__cell"><span onclick="change_text()"id="resent"><a href="javascript:void(0)">Resend email</a><span></td>
-            <td class="govuk-table__cell"><a href="remove-director">Remove</a></td>
+            <td class="govuk-table__cell"><a href="remove-officer">Remove</a></td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red app-task-list__tag" id="company-information-completed">Not signed</strong></td>
         </tr>
         <tr class="govuk-table__row">
@@ -59,7 +58,7 @@
 
     {{ govukButton({
       text: "Cancel fee",
-      href: ""
+      href: "cancel-fee"
     }) }}
 
 
@@ -75,6 +74,7 @@
         caption: "History",
         captionClasses: "govuk-table__caption--m",
         firstCellIsHeader: false,
+        classes: "govuk-!-margin-top-8",
         head: [
           {
             text: "Date/time"

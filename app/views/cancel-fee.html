@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Are you sure you want to remove Jane EVANS? - Dissolution support console - Companies House Internal Service
+  Are you sure you want to cancel the fee for ACME LIMITED (01234567)? - Dissolution support console - Companies House Internal Service
 {% endblock %}
 {% block beforeContent %}
   {{ govukBackLink({
@@ -11,7 +11,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <form class="form" action="/all" method="get">
+      <form class="form" action="/company" method="get">
 
 
         {{ govukRadios({
@@ -20,7 +20,7 @@
               name: "changed-name",
               fieldset: {
                 legend: {
-                  text: "  Are you sure you want to delete the application for ACME LIMITED (01234567)?",
+                  text: "Are you sure you want to cancel the fee for ACME LIMITED (01234567)?",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend--l"
                 }

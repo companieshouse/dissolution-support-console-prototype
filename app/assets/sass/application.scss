@@ -75,6 +75,10 @@ tr:nth-child(even) {
   text-align: center;
 }
 
+.govuk-table__cell strong {
+  float: left;
+}
+
 .filters-heading {
   background: #f3f2f1;
   padding: 8px 4px;
